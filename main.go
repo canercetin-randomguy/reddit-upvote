@@ -66,7 +66,7 @@ func PostID() string {
 }
 
 // SetProxy Sets a random proxy IP address from proxy.env file.
-func SetProxy(usedproxy string) string {
+func SetProxy(usedproxy string, proxycnt int) string {
 	viper.SetConfigName("proxy")
 	viper.SetConfigType("env")
 	viper.AddConfigPath(".")
@@ -75,12 +75,12 @@ func SetProxy(usedproxy string) string {
 		panic(err)
 	}
 	// Pick a random number between 1-12
-	num := rand.Intn(4) + 1
+	num := rand.Intn(proxycnt) + 1
 	proxyName := "PROXY_" + strconv.Itoa(num)
 	proxyIP := viper.Get(proxyName)
 	for {
 		if proxyIP.(string) == usedproxy {
-			num = rand.Intn(4) + 1
+			num = rand.Intn(proxycnt) + 1
 			proxyName = "PROXY_" + strconv.Itoa(num)
 			proxyIP = viper.Get(proxyName)
 		} else {
@@ -112,10 +112,13 @@ func ClientsUpvote(clients []*reddit.Client, usedproxy string) {
 	}
 }
 func main() {
+	var proxycnt int
+	fmt.Println("Lütfen proxy.env dosyasında kaç adet proxy belirttiğinizi girin: ")
+	_, _ = fmt.Scanf("%d", &proxycnt)
 	// Keep a runtime timer
 	accounts, start := LoadCredentials()
 	var proxyIP string
-	proxyIP = SetProxy(dummy)
+	proxyIP = SetProxy(dummy, proxycnt)
 	// Hesapları yazdırma
 	for i := 0; i < len(accounts); i++ {
 		println("Hesap " + accounts[i].Username + ":")
@@ -129,8 +132,6 @@ func main() {
 	// Create a new reddit client for each account
 	var clients []*reddit.Client
 	for i := 0; i < len(accounts); i++ {
-		// EĞER MÜŞTERİ BÜTÜN HESAPLAR İÇİN AYRI PROXY ALIRSA HER PROXY AYRI BİR CLIENTA ATANACAK
-		// EĞER MÜŞTERİ BUNU YAPMAZSA, MECBUR RANDOM ATAYACAĞIZ PROXYLERİ.
 		parsedProxyIp, err := url.Parse(proxyIP)
 		httpClient := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(parsedProxyIp)}}
 		tempclient, err := reddit.NewClient(accounts[i], reddit.WithHTTPClient(httpClient))
@@ -138,7 +139,7 @@ func main() {
 			panic(err)
 		}
 		clients = append(clients, tempclient)
-		proxyIP = SetProxy(proxyIP)
+		proxyIP = SetProxy(proxyIP, proxycnt)
 	}
 	ClientsUpvote(clients, proxyIP)
 	// Print runtime
