@@ -1,3 +1,9 @@
-# bu-repo-imha-edilecek
+this is not a repo to build 1500 account bot upvote network, because for every account you need a CLIENT_ID and CLIENT_SECRET of that account from https://www.reddit.com/prefs/apps
 
+Setup credentials.env with account username/passwords, CLIENT_ID, CLIENT_SECRET, setup proxies, public proxies will be fine I guess. App will ask you how many proxy and account you have set in the startup. 
+
+I dont even know if this is fully functional, this is just something that came out of total boredom.
+
+
+here is some cane hill you to enjoy.
 [![düdüdüdüt.](https://img.youtube.com/vi/3JEOBHgQubE/0.jpg)](https://www.youtube.com/watch?v=3JEOBHgQubE)
