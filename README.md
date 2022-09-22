@@ -4,4 +4,4 @@ Setup credentials.env with account username/passwords, CLIENT_ID, CLIENT_SECRET,
 
 Setup post.env with post ID from link.
 
-I dont even know if this is fully functional, this is just something that came out of total boredom.
+it is fully functional, but you need private proxies. almost all public proxy servers are banned from Reddit.
