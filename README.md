@@ -5,7 +5,3 @@ Setup credentials.env with account username/passwords, CLIENT_ID, CLIENT_SECRET,
 Setup post.env with post ID from link.
 
 I dont even know if this is fully functional, this is just something that came out of total boredom.
-
-
-here is some cane hill you to enjoy.
-[![düdüdüdüt.](https://img.youtube.com/vi/3JEOBHgQubE/0.jpg)](https://www.youtube.com/watch?v=3JEOBHgQubE)
