@@ -13,14 +13,14 @@ PROXY_4=http://183.239.61.167:9091
 just follow the pattern of PROXY_X=????
 
 Fill credentials.env like this
-CLIENT_ID=****
-CLIENT_SECRET=****
-USERNAMEREDDIT=****
-PASSWORD=****
-CLIENT_ID_1=****
-CLIENT_SECRET_1=****
-USERNAMEREDDIT_1=****
-PASSWORD_1=****
+-CLIENT_ID=****
+-CLIENT_SECRET=****
+-USERNAMEREDDIT=****
+-PASSWORD=****
+-CLIENT_ID_1=****
+-CLIENT_SECRET_1=****
+-USERNAMEREDDIT_1=****
+-PASSWORD_1=****
 
 You need to grab credentials for every account that in network. https://www.reddit.com/prefs/apps grab it here.
 
