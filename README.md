@@ -5,10 +5,15 @@ setup:
 Download https://github.com/canercetin-randomguy/reddit-upvote/releases/download/doot/reddit-upvote.exe, create a file called proxy.env, credentials.env and post.env
 
 Fill proxy.env like this:
+
 PROXY_1=http://117.160.132.37:9091
+
 PROXY_2=http://121.22.53.166:9091
+
 PROXY_3=http://144.91.66.128:3128
+
 PROXY_4=http://183.239.61.167:9091
+
 
 just follow the pattern of PROXY_X=????
 
